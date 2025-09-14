@@ -23,20 +23,55 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            transition: transform 0.6s cubic-bezier(.4,0,.2,1), opacity 0.6s;
             opacity: 0;
-            transform: translateX(100%);
             z-index: 0;
+            transition: transform 0.6s cubic-bezier(.4,0,.2,1), opacity 0.6s;
         }
         .carousel-img.active {
             opacity: 1;
-            transform: translateX(0);
             z-index: 1;
+            transform: translateX(0);
         }
-        .carousel-img.exit {
-            opacity: 0;
+        .carousel-img.slide-in-right {
+            opacity: 1;
+            z-index: 1;
+            transform: translateX(100%);
+            animation: slideInRight 0.6s forwards;
+        }
+        .carousel-img.slide-out-left {
+            opacity: 1;
+            z-index: 1;
+            transform: translateX(0);
+            animation: slideOutLeft 0.6s forwards;
+        }
+        .carousel-img.slide-in-left {
+            opacity: 1;
+            z-index: 1;
             transform: translateX(-100%);
-            z-index: 0;
+            animation: slideInLeft 0.6s forwards;
+        }
+        .carousel-img.slide-out-right {
+            opacity: 1;
+            z-index: 1;
+            transform: translateX(0);
+            animation: slideOutRight 0.6s forwards;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        @keyframes slideOutLeft {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        @keyframes slideOutRight {
+            from { transform: translateX(0); }
+            to { transform: translateX(100%); }
         }
     </style>
 </head>
@@ -91,7 +126,7 @@
         </section>
         
         <!-- Video Button -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             <a href="#video-alam-1" class="mx-auto bg-transparent border-2 border-madura-brown text-madura-brown px-6 py-2 rounded-lg hover:bg-madura-brown hover:text-white transition-colors font-medium">
                 Video Alam 1
             </a>
@@ -118,7 +153,7 @@
             <a href="#video-alam-8" class="mx-auto bg-transparent border-2 border-madura-brown text-madura-brown px-6 py-2 rounded-lg hover:bg-madura-brown hover:text-white transition-colors font-medium">
                 Video Kuliner 4
             </a>
-        </div>
+        </div> -->
 
         <!-- Toggle Buttons -->
         <section class="flex justify-center pt-24" id="wisata">
@@ -152,6 +187,20 @@
             
                         <!-- Image 2 -->
                         <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video carousel-active hover:cursor-pointer" id="carousel-alam-1">
+                            <!-- Chevron kiri & kanan -->
+                            <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-prev" aria-label="Sebelumnya">
+                                <!-- SVG kiri -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-next" aria-label="Berikutnya">
+                                <!-- SVG kanan -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
                             <img src="gambar-1.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img active">
                             <img src="gambar-2.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
                             <img src="gambar-3.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
@@ -175,6 +224,19 @@
             
                         <!-- Image 2 -->
                         <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video hover:cursor-pointer" id="carousel-alam-2">
+                            <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-prev" aria-label="Sebelumnya">
+                                <!-- SVG kiri -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-next" aria-label="Berikutnya">
+                                <!-- SVG kanan -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
                             <img src="gambar-1.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img active">
                             <img src="gambar-2.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
                             <img src="gambar-3.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
@@ -198,6 +260,19 @@
             
                         <!-- Image 2 -->
                         <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video hover:cursor-pointer" id="carousel-alam-3">
+                            <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-prev" aria-label="Sebelumnya">
+                                <!-- SVG kiri -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-next" aria-label="Berikutnya">
+                                <!-- SVG kanan -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
                             <img src="gambar-1.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img active">
                             <img src="gambar-2.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
                             <img src="gambar-3.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
@@ -221,6 +296,19 @@
             
                         <!-- Image 2 -->
                         <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video hover:cursor-pointer" id="carousel-alam-4">
+                            <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-prev" aria-label="Sebelumnya">
+                                <!-- SVG kiri -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-next" aria-label="Berikutnya">
+                                <!-- SVG kanan -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
                             <img src="gambar-1.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img active">
                             <img src="gambar-2.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
                             <img src="gambar-3.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
@@ -238,29 +326,32 @@
                     <!-- Image Gallery -->
                     <div class="grid md:grid-cols-2 gap-12">
                         <!-- Image 1 -->
-                        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
-                            <div class="bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 h-64 flex items-center justify-center">
-                                <div class="text-white text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-70" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="text-lg font-medium">Video Alam</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity"></div>
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video">
+                            <video controls class="w-full h-full object-cover">
+                                <source src="video-demo-1.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung video.
+                            </video>
                         </div>
             
                         <!-- Image 2 -->
-                        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
-                            <div class="bg-gradient-to-br from-green-400 via-green-500 to-green-600 h-64 flex items-center justify-center">
-                                <div class="text-white text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-70" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="text-lg font-medium">Presentasi Alam</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity"></div>
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video carousel-active hover:cursor-pointer" id="carousel-alam-1">
+                            <!-- Chevron kiri & kanan -->
+                            <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-prev" aria-label="Sebelumnya">
+                                <!-- SVG kiri -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-next" aria-label="Berikutnya">
+                                <!-- SVG kanan -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
+                            <img src="gambar-1.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img active">
+                            <img src="gambar-2.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
+                            <img src="gambar-3.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
                         </div>
                     </div>
                 </div>
@@ -272,29 +363,32 @@
                     <!-- Image Gallery -->
                     <div class="grid md:grid-cols-2 gap-12">
                         <!-- Image 1 -->
-                        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
-                            <div class="bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 h-64 flex items-center justify-center">
-                                <div class="text-white text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-70" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="text-lg font-medium">Video Alam</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity"></div>
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video">
+                            <video controls class="w-full h-full object-cover">
+                                <source src="video-demo-1.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung video.
+                            </video>
                         </div>
             
                         <!-- Image 2 -->
-                        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
-                            <div class="bg-gradient-to-br from-green-400 via-green-500 to-green-600 h-64 flex items-center justify-center">
-                                <div class="text-white text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-70" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="text-lg font-medium">Presentasi Alam</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity"></div>
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video carousel-active hover:cursor-pointer" id="carousel-alam-1">
+                            <!-- Chevron kiri & kanan -->
+                            <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-prev" aria-label="Sebelumnya">
+                                <!-- SVG kiri -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-next" aria-label="Berikutnya">
+                                <!-- SVG kanan -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
+                            <img src="gambar-1.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img active">
+                            <img src="gambar-2.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
+                            <img src="gambar-3.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
                         </div>
                     </div>
                 </div>
@@ -306,29 +400,32 @@
                     <!-- Image Gallery -->
                     <div class="grid md:grid-cols-2 gap-12">
                         <!-- Image 1 -->
-                        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
-                            <div class="bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 h-64 flex items-center justify-center">
-                                <div class="text-white text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-70" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="text-lg font-medium">Video Alam</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity"></div>
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video">
+                            <video controls class="w-full h-full object-cover">
+                                <source src="video-demo-1.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung video.
+                            </video>
                         </div>
             
                         <!-- Image 2 -->
-                        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
-                            <div class="bg-gradient-to-br from-green-400 via-green-500 to-green-600 h-64 flex items-center justify-center">
-                                <div class="text-white text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-70" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="text-lg font-medium">Presentasi Alam</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity"></div>
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video carousel-active hover:cursor-pointer" id="carousel-alam-1">
+                            <!-- Chevron kiri & kanan -->
+                            <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-prev" aria-label="Sebelumnya">
+                                <!-- SVG kiri -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-next" aria-label="Berikutnya">
+                                <!-- SVG kanan -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
+                            <img src="gambar-1.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img active">
+                            <img src="gambar-2.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
+                            <img src="gambar-3.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
                         </div>
                     </div>
                 </div>
@@ -340,29 +437,32 @@
                     <!-- Image Gallery -->
                     <div class="grid md:grid-cols-2 gap-12">
                         <!-- Image 1 -->
-                        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
-                            <div class="bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 h-64 flex items-center justify-center">
-                                <div class="text-white text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-70" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="text-lg font-medium">Video Alam</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity"></div>
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video">
+                            <video controls class="w-full h-full object-cover">
+                                <source src="video-demo-1.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung video.
+                            </video>
                         </div>
             
                         <!-- Image 2 -->
-                        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
-                            <div class="bg-gradient-to-br from-green-400 via-green-500 to-green-600 h-64 flex items-center justify-center">
-                                <div class="text-white text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-70" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="text-lg font-medium">Presentasi Alam</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity"></div>
+                        <div class="relative overflow-hidden rounded-2xl shadow-lg group aspect-video carousel-active hover:cursor-pointer" id="carousel-alam-1">
+                            <!-- Chevron kiri & kanan -->
+                            <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-prev" aria-label="Sebelumnya">
+                                <!-- SVG kiri -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-next" aria-label="Berikutnya">
+                                <!-- SVG kanan -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
+                            <img src="gambar-1.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img active">
+                            <img src="gambar-2.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
+                            <img src="gambar-3.jpg" alt="alam-1" class="w-full h-full object-cover carousel-img">
                         </div>
                     </div>
                 </div>
@@ -397,65 +497,86 @@
             let activeCarousel = null;
             let slideInterval = null;
 
-            function startCarousel(carousel, startIdx = 0) {
-                const images = carousel.querySelectorAll('.carousel-img');
-                // let idx = Array.from(images).findIndex(img => img.classList.contains('active'));
-                let idx = startIdx;
-                if (idx === -1) idx = 0;
+            // function startCarousel(carousel, startIdx = 0) {
+            //     const images = carousel.querySelectorAll('.carousel-img');
+            //     // let idx = Array.from(images).findIndex(img => img.classList.contains('active'));
+            //     let idx = startIdx;
+            //     if (idx === -1) idx = 0;
 
-                // Bersihkan interval sebelumnya
-                if (slideInterval) clearInterval(slideInterval);
+            //     // Bersihkan interval sebelumnya
+            //     if (slideInterval) clearInterval(slideInterval);
 
-                slideInterval = setInterval(() => {
-                    images[idx].classList.remove('active');
-                    images[idx].classList.add('exit');
-                    let nextIdx = (idx + 1) % images.length;
-                    images[nextIdx].classList.add('active');
-                    images[nextIdx].classList.remove('exit');
-                    setTimeout(() => {
-                        images[idx].classList.remove('exit');
-                        idx = nextIdx;
-                    }, 600);
-                }, 1500);
-            }
+            //     slideInterval = setInterval(() => {
+            //         images[idx].classList.remove('active');
+            //         images[idx].classList.add('exit');
+            //         let nextIdx = (idx + 1) % images.length;
+            //         images[nextIdx].classList.add('active');
+            //         images[nextIdx].classList.remove('exit');
+            //         setTimeout(() => {
+            //             images[idx].classList.remove('exit');
+            //             idx = nextIdx;
+            //         }, 600);
+            //     }, 1500);
+            // }
 
-            function stopCarousel() {
-                if (slideInterval) clearInterval(slideInterval);
-                slideInterval = null;
-            }
+            // function stopCarousel() {
+            //     if (slideInterval) clearInterval(slideInterval);
+            //     slideInterval = null;
+            // }
 
             carousels.forEach(carousel => {
-                carousel.addEventListener('click', function(e) {
-                    // Jika klik pada gambar
-                    if (e.target.classList.contains('carousel-img')) {
-                        // Nonaktifkan semua carousel
-                        carousels.forEach(c => c.classList.remove('carousel-active'));
-                        // Aktifkan carousel yang diklik
-                        carousel.classList.add('carousel-active');
-                        activeCarousel = carousel;
-                        // Set semua gambar nonaktif
-                        const images = carousel.querySelectorAll('.carousel-img');
-                        images.forEach(img => img.classList.remove('active', 'exit'));
+                const images = carousel.querySelectorAll('.carousel-img');
+                let idx = Array.from(images).findIndex(img => img.classList.contains('active'));
+                if (idx === -1) idx = 0;
 
-                        // Aktifkan gambar yang diklik
-                        e.target.classList.add('active');
+                // Chevron kiri
+                const prevBtn = carousel.querySelector('.carousel-prev');
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        images[idx].classList.remove('active', 'slide-in-right', 'slide-in-left', 'slide-out-left', 'slide-out-right');
+                        images[idx].classList.add('slide-out-right');
+                        let prevIdx = (idx - 1 + images.length) % images.length;
+                        images[prevIdx].classList.remove('active', 'slide-in-right', 'slide-in-left', 'slide-out-left', 'slide-out-right');
+                        images[prevIdx].classList.add('slide-in-left');
+                        setTimeout(() => {
+                            images[idx].classList.remove('slide-out-right');
+                            images[prevIdx].classList.remove('slide-in-left');
+                            images[idx].classList.remove('active');
+                            images[prevIdx].classList.add('active');
+                            idx = prevIdx;
+                        }, 600);
+                    });
+                }
 
-                        stopCarousel();
-
-                        // Mulai slide dari gambar yang diklik
-                        const startIdx = Array.from(images).indexOf(e.target);
-                        startCarousel(carousel, startIdx);
-                    }
-                });
-            });
-
-            // Jika klik di luar carousel, matikan slide
-            document.addEventListener('click', function(e) {
-                if (![...carousels].some(c => c.contains(e.target))) {
-                    carousels.forEach(c => c.classList.remove('carousel-active'));
-                    stopCarousel();
+                // Chevron kanan
+                const nextBtn = carousel.querySelector('.carousel-next');
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        images[idx].classList.remove('active', 'slide-in-right', 'slide-in-left', 'slide-out-left', 'slide-out-right');
+                        images[idx].classList.add('slide-out-left');
+                        let nextIdx = (idx + 1) % images.length;
+                        images[nextIdx].classList.remove('active', 'slide-in-right', 'slide-in-left', 'slide-out-left', 'slide-out-right');
+                        images[nextIdx].classList.add('slide-in-right');
+                        setTimeout(() => {
+                            images[idx].classList.remove('slide-out-left');
+                            images[nextIdx].classList.remove('slide-in-right');
+                            images[idx].classList.remove('active');
+                            images[nextIdx].classList.add('active');
+                            idx = nextIdx;
+                        }, 600);
+                    });
                 }
             });
+
+            // // Jika klik di luar carousel, matikan slide
+            // document.addEventListener('click', function(e) {
+            //     if (![...carousels].some(c => c.contains(e.target))) {
+            //         carousels.forEach(c => c.classList.remove('carousel-active'));
+            //         stopCarousel();
+            //     }
+            // });
 
 
             // Fungsi untuk mengaktifkan tab dan konten sesuai id
