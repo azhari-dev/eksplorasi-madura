@@ -12,7 +12,7 @@ $site_name = isset($site_name) ? $site_name : 'Eksplorasi Madura';
 
 <!-- Footer -->
 <footer class="bg-white flex justify-center border-t mt-20 px-6 py-8">
-    <div class="grid md:grid-cols-3 max-w-6xl gap-36 px-6">
+    <div class="grid md:grid-cols-3 max-w-6xl gap-36 px-6 mobile">
         <!-- Brand Section -->
         <div class="col-span-1">
             <h3 class="text-lg font-semibold text-madura-orange mb-3">
@@ -25,7 +25,7 @@ $site_name = isset($site_name) ? $site_name : 'Eksplorasi Madura';
         </div>
 
         <!-- Quick Links -->
-        <div class="col-span-1 mx-auto">
+        <div class="col-span-1 mx-auto" id="quick-links-2">
             <h4 class="text-md font-medium text-madura-orange mb-3">Quick Links</h4>
             <ul class="space-y-2">
                 <li>

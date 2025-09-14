@@ -213,6 +213,14 @@
     .navbar {
         padding: 1rem 1.5rem;
     }
+
+    footer .mobile {
+        gap: 2rem;
+    }
+
+    #quick-links-2 {
+        margin: auto 0;
+    }
 }
 
 

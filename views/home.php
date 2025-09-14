@@ -33,9 +33,9 @@
 </section>
 
 <!-- Video Navigation Buttons -->
-<section class="mb-16" role="navigation" aria-label="Navigation Video">
+<section class="mb-16 grid grid-cols-2 gap-12" role="navigation" aria-label="Navigation Video">
     <!-- Wisata Alam Buttons -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+    <div class="grid grid-cols-2 gap-6">
         <?php foreach ($wisata_alam as $index => $wisata): ?>
             <a href="#video-alam-<?php echo $index + 1; ?>"
                 class="card-button bg-transparent text-center px-6 py-2 rounded-lg font-medium transition-colors">
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Wisata Kuliner Buttons -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="grid grid-cols-2 gap-6">
         <?php foreach ($wisata_kuliner as $index => $kuliner): ?>
             <a href="#video-alam-<?php echo $index + 5; ?>"
                 class="card-button bg-transparent text-center px-6 py-2 rounded-lg font-medium transition-colors">
