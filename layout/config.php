@@ -40,7 +40,7 @@ $wisata_alam = [
         'id' => 'alam-1',
         'title' => 'Wisata Alam 1',
         'description' => 'Deskripsi wisata alam pertama',
-        'video' => 'video-demo-1.mp4',
+        'video' => 'alam-api-tak-kunjung-padam.mp4',
         'images' => ['gambar-1.jpg', 'gambar-2.jpg', 'gambar-3.jpg']
     ],
     [
@@ -89,6 +89,61 @@ $wisata_kuliner = [
         'description' => 'Deskripsi wisata kuliner keempat'
     ]
 ];
+
+// $wisata_alam = [
+//     [
+//         'id' => 'alam-1',
+//         'title' => 'Wisata Alam 1',
+//         'description' => 'Deskripsi wisata alam pertama',
+//         'video' => 'video-demo-1.mp4',
+//         'images' => ['gambar-1.jpg', 'gambar-2.jpg', 'gambar-3.jpg']
+//     ],
+//     [
+//         'id' => 'alam-2', 
+//         'title' => 'Wisata Alam 2',
+//         'description' => 'Deskripsi wisata alam kedua',
+//         'video' => 'video-demo-1.mp4',
+//         'images' => ['gambar-1.jpg', 'gambar-2.jpg', 'gambar-3.jpg']
+//     ],
+//     [
+//         'id' => 'alam-3',
+//         'title' => 'Wisata Alam 3', 
+//         'description' => 'Deskripsi wisata alam ketiga',
+//         'video' => 'video-demo-1.mp4',
+//         'images' => ['gambar-1.jpg', 'gambar-2.jpg', 'gambar-3.jpg']
+//     ],
+//     [
+//         'id' => 'alam-4',
+//         'title' => 'Wisata Alam 4',
+//         'description' => 'Deskripsi wisata alam keempat', 
+//         'video' => 'video-demo-1.mp4',
+//         'images' => ['gambar-1.jpg', 'gambar-2.jpg', 'gambar-3.jpg']
+//     ]
+// ];
+
+// // Daftar konten wisata kuliner
+// $wisata_kuliner = [
+//     [
+//         'id' => 'kuliner-1',
+//         'title' => 'Wisata Kuliner 1',
+//         'description' => 'Deskripsi wisata kuliner pertama'
+//     ],
+//     [
+//         'id' => 'kuliner-2',
+//         'title' => 'Wisata Kuliner 2', 
+//         'description' => 'Deskripsi wisata kuliner kedua'
+//     ],
+//     [
+//         'id' => 'kuliner-3',
+//         'title' => 'Wisata Kuliner 3',
+//         'description' => 'Deskripsi wisata kuliner ketiga'
+//     ],
+//     [
+//         'id' => 'kuliner-4',
+//         'title' => 'Wisata Kuliner 4',
+//         'description' => 'Deskripsi wisata kuliner keempat'
+//     ]
+// ];
 
 // ========================================
 // FEATURE FLAGS
