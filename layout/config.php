@@ -7,6 +7,7 @@ $university_name = 'Universitas Trunojoyo Madura';
 
 // URL dan Path settings
 $base_url = 'http://localhost/eksplorasi-madura/'; // Ganti sesuai dengan URL Anda
+// $base_url = 'https://wisata.triplec.or.id/'; // Ganti sesuai dengan URL Anda
 $assets_url = rtrim($base_url, '/') . '/assets';
 
 // ========================================
@@ -26,7 +27,7 @@ $videos_path = 'assets/videos/';
 // Warna tema Madura
 $theme_colors = [
     'madura-orange' => '#D97706',
-    'madura-purple' => '#8B5CF6', 
+    'madura-purple' => '#8B5CF6',
     'madura-brown' => '#92400E'
 ];
 
@@ -44,7 +45,7 @@ $wisata_alam = [
         'images' => ['gambar-1.jpg', 'gambar-2.jpg', 'gambar-3.jpg']
     ],
     [
-        'id' => 'alam-2', 
+        'id' => 'alam-2',
         'title' => 'Wisata Alam 2',
         'description' => 'Deskripsi wisata alam kedua',
         'video' => 'video-demo-1.mp4',
@@ -52,7 +53,7 @@ $wisata_alam = [
     ],
     [
         'id' => 'alam-3',
-        'title' => 'Wisata Alam 3', 
+        'title' => 'Wisata Alam 3',
         'description' => 'Deskripsi wisata alam ketiga',
         'video' => 'video-demo-1.mp4',
         'images' => ['gambar-1.jpg', 'gambar-2.jpg', 'gambar-3.jpg']
@@ -60,7 +61,7 @@ $wisata_alam = [
     [
         'id' => 'alam-4',
         'title' => 'Wisata Alam 4',
-        'description' => 'Deskripsi wisata alam keempat', 
+        'description' => 'Deskripsi wisata alam keempat',
         'video' => 'video-demo-1.mp4',
         'images' => ['gambar-1.jpg', 'gambar-2.jpg', 'gambar-3.jpg']
     ]
@@ -75,7 +76,7 @@ $wisata_kuliner = [
     ],
     [
         'id' => 'kuliner-2',
-        'title' => 'Wisata Kuliner 2', 
+        'title' => 'Wisata Kuliner 2',
         'description' => 'Deskripsi wisata kuliner kedua'
     ],
     [
@@ -161,7 +162,7 @@ $enable_mobile_menu = true;
 
 $social_links = [
     'facebook' => 'https://facebook.com/eksplorasi-madura',
-    'instagram' => 'https://instagram.com/eksplorasi_madura', 
+    'instagram' => 'https://instagram.com/eksplorasi_madura',
     'twitter' => 'https://twitter.com/eksplorasi_madura',
     'youtube' => 'https://youtube.com/eksplorasi-madura'
 ];
@@ -186,24 +187,25 @@ $contact_info = [
  * @param string $type Tipe asset (css, js, images, videos)
  * @return string Full URL ke asset
  */
-function get_asset_url($path, $type = 'images') {
+function get_asset_url($path, $type = 'images')
+{
     global $assets_url;
-    
+
     $type_paths = [
         'css' => '/css/',
-        'js' => '/js/', 
+        'js' => '/js/',
         'images' => '/images/',
         'videos' => '/videos/'
     ];
-    
+
     $full_path = $assets_url . $type_paths[$type] . $path;
-    
+
     // Add cache busting parameter jika file exists
     $file_path = $_SERVER['DOCUMENT_ROOT'] . '/assets' . $type_paths[$type] . $path;
     if (file_exists($file_path)) {
         $full_path .= '?v=' . filemtime($file_path);
     }
-    
+
     return $full_path;
 }
 
@@ -211,7 +213,8 @@ function get_asset_url($path, $type = 'images') {
  * Get current page untuk navigation highlighting
  * @return string Current page identifier
  */
-function get_current_page() {
+function get_current_page()
+{
     $current_file = basename($_SERVER['PHP_SELF'], '.php');
     return $current_file === 'index' ? 'home' : $current_file;
 }
@@ -223,13 +226,14 @@ function get_current_page() {
  * @param string $keywords Page keywords
  * @return string HTML meta tags
  */
-function generate_meta_tags($title = '', $description = '', $keywords = '') {
+function generate_meta_tags($title = '', $description = '', $keywords = '')
+{
     global $site_name, $site_description, $site_keywords;
-    
+
     $page_title = $title ? $title . ' - ' . $site_name : $site_name;
     $page_description = $description ?: $site_description;
     $page_keywords = $keywords ?: $site_keywords;
-    
+
     return "
     <title>{$page_title}</title>
     <meta name=\"description\" content=\"{$page_description}\">
@@ -261,4 +265,3 @@ if ($is_development) {
 
 // Timezone
 date_default_timezone_set('Asia/Jakarta');
-?>
