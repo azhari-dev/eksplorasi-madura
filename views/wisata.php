@@ -73,7 +73,7 @@
         role="tabpanel"
         aria-labelledby="tab-kuliner">
         <?php foreach ($wisata_kuliner as $index => $wisata): ?>
-        <div class="video-section" id="<?= $wisata['id']; ?>">
+        <div class="video-section" id="video-alam-<?= $index + 5; ?>">
             <!-- Section Title -->
             <h3 class="text-4xl font-bold text-madura-orange text-center mb-6">
                 <?= $wisata['title']; ?>
