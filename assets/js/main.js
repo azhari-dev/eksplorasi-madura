@@ -77,7 +77,7 @@ const App = {
                 const href = link.getAttribute('href');
                 
                 // Skip jika sudah dihandle oleh tabs manager
-                if (href.startsWith('#video-alam-')) {
+                if (href.startsWith('#video-alam-') || href.startsWith('#video-kuliner-')) {
                     return;
                 }
                 

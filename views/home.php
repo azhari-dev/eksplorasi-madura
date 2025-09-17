@@ -47,7 +47,7 @@
     <!-- Wisata Kuliner Buttons -->
     <div class="grid grid-cols-2 gap-6">
         <?php foreach ($wisata_kuliner as $index => $kuliner): ?>
-            <a href="#video-alam-<?= $index + 5; ?>"
+            <a href="#video-kuliner-<?= $index + 1; ?>"
                 class="card-button bg-transparent text-center px-6 py-2 rounded-lg font-medium transition-colors">
                 Video Kuliner <?= $index + 1; ?>
             </a>

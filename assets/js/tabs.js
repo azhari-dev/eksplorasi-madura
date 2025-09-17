@@ -2,7 +2,7 @@ class TabsManager {
     constructor() {
         this.tabs = document.querySelectorAll('.tab-button');
         this.contents = document.querySelectorAll('.tab-content');
-        this.videoButtons = document.querySelectorAll('a[href^="#video-alam-"]');
+        this.videoButtons = document.querySelectorAll('a[href^="#video-alam-"], a[href^="#video-kuliner-"]');
         this.cardButtons = document.querySelectorAll('.cards-section button');
         
         this.init();
@@ -218,6 +218,49 @@ class TabsManager {
         this.cardButtons = null;
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const tabsManager = new TabsManager();
+
+    function handleInitialHash() {
+        const hash = window.location.hash;
+        if (hash) {
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+                // Cari parent .tab-content
+                const parentTabContent = targetElement.closest('.tab-content');
+                if (parentTabContent) {
+                    // Aktifkan tab yang sesuai
+                    if (parentTabContent.id === 'content-alam') {
+                        tabsManager.activateTab('tab-alam', 'content-alam');
+                    } else if (parentTabContent.id === 'content-kuliner') {
+                        tabsManager.activateTab('tab-kuliner', 'content-kuliner');
+                    }
+                }
+                // Scroll setelah tab aktif
+                function tryScrollToTarget(retry = 0) {
+                    if (
+                        targetElement.offsetParent !== null &&
+                        !targetElement.classList.contains('hidden')
+                    ) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    } else if (retry < 20) {
+                        setTimeout(() => tryScrollToTarget(retry + 1), 50);
+                    }
+                }
+                tryScrollToTarget();
+            }
+        }
+    }
+
+    handleInitialHash();
+    window.addEventListener('hashchange', handleInitialHash);
+});
+
 
 // Export untuk kemudahan testing dan reusability
 if (typeof module !== 'undefined' && module.exports) {
