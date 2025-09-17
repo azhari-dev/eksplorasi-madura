@@ -10,7 +10,7 @@ if (file_exists(__DIR__ . '/config.php')) {
     <div class="max-w-6xl mx-auto flex justify-between items-center px-6">
         <!-- Logo/Brand -->
         <h1 class="text-xl font-semibold text-gray-800">
-            <?php echo isset($site_name) ? $site_name : 'Eksplorasi Madura'; ?>
+            <?= isset($site_name) ? $site_name : 'Eksplorasi Madura'; ?>
         </h1>
 
         <!-- Desktop Navigation -->

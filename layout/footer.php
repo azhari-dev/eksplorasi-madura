@@ -16,7 +16,7 @@ $site_name = isset($site_name) ? $site_name : 'Eksplorasi Madura';
         <!-- Brand Section -->
         <div class="col-span-1">
             <h3 class="text-lg font-semibold text-madura-orange mb-3">
-                <?php echo $site_name; ?>
+                <?= $site_name; ?>
             </h3>
             <p class="text-gray-600 text-sm leading-relaxed">
                 Platform yang didedikasikan untuk memperkenalkan keindahan wisata alam
@@ -79,8 +79,8 @@ $site_name = isset($site_name) ? $site_name : 'Eksplorasi Madura';
         <!-- Copyright -->
         <div class="text-center md:text-left">
             <p class="text-gray-600 text-sm">
-                &copy; <?php echo $current_year; ?> <?php echo $site_name; ?>.
-                <span class="text-madura-brown font-medium"><?php echo $university_name; ?></span>.
+                &copy; <?= $current_year; ?> <?= $site_name; ?>.
+                <span class="text-madura-brown font-medium"><?= $university_name; ?></span>.
             </p>
         </div>
     </div>
