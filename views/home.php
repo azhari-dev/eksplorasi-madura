@@ -5,7 +5,7 @@
         Wisata Kuliner Madura
     </h2>
     <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-        <?php echo $site_description; ?>
+        <?= $site_description; ?>
     </p>
 </section>
 
@@ -37,9 +37,9 @@
     <!-- Wisata Alam Buttons -->
     <div class="grid grid-cols-2 gap-6">
         <?php foreach ($wisata_alam as $index => $wisata): ?>
-            <a href="#video-alam-<?php echo $index + 1; ?>"
+            <a href="#video-alam-<?= $index + 1; ?>"
                 class="card-button bg-transparent text-center px-6 py-2 rounded-lg font-medium transition-colors">
-                Video Alam <?php echo $index + 1; ?>
+                Video Alam <?= $index + 1; ?>
             </a>
         <?php endforeach; ?>
     </div>
@@ -47,9 +47,9 @@
     <!-- Wisata Kuliner Buttons -->
     <div class="grid grid-cols-2 gap-6">
         <?php foreach ($wisata_kuliner as $index => $kuliner): ?>
-            <a href="#video-alam-<?php echo $index + 5; ?>"
+            <a href="#video-kuliner-<?= $index + 1; ?>"
                 class="card-button bg-transparent text-center px-6 py-2 rounded-lg font-medium transition-colors">
-                Video Kuliner <?php echo $index + 1; ?>
+                Video Kuliner <?= $index + 1; ?>
             </a>
         <?php endforeach; ?>
     </div>
