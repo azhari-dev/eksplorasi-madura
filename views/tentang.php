@@ -4,6 +4,6 @@
         Tentang Kami
     </h3>
     <p class="text-lg text-gray-600 mx-auto max-w-3xl">
-        <?php echo $site_name; ?> adalah platform yang didedikasikan untuk memperkenalkan keindahan wisata alam dan kuliner khas Madura. Kami berkomitmen untuk memberikan informasi yang akurat dan menarik bagi para wisatawan yang ingin menjelajahi pesona Madura.
+        <?= $site_name; ?> adalah platform yang didedikasikan untuk memperkenalkan keindahan wisata alam dan kuliner khas Madura. Kami berkomitmen untuk memberikan informasi yang akurat dan menarik bagi para wisatawan yang ingin menjelajahi pesona Madura.
     </p>
 </section>
