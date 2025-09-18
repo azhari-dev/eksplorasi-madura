@@ -1,8 +1,8 @@
 class TabsManager {
     constructor() {
         this.tabs = document.querySelectorAll('.tab-button');
-        this.contents = document.querySelectorAll('.tab-content');
-        this.videoButtons = document.querySelectorAll('a[href^="#video-alam-"], a[href^="#video-kuliner-"]');
+        this.contents = document.querySelectorAll('.content-section');
+        this.navButtons = document.querySelectorAll('a[href^="#edukasi-alam-"], a[href^="#edukasi-kuliner-"]');
         this.cardButtons = document.querySelectorAll('.cards-section button');
         
         this.init();
@@ -13,9 +13,17 @@ class TabsManager {
      */
     init() {
         this.bindTabEvents();
-        this.bindVideoButtonEvents();
+        this.bindNavButtonEvents();
         this.bindCardButtonEvents();
         this.setupInitialState();
+
+        // Mekanisme 2: hash URL
+        this.handleNavigation(window.location.hash);
+
+        // Back/forward browser
+        window.addEventListener('popstate', () => {
+            this.handleNavigation(window.location.hash);
+        });
     }
 
     /**
@@ -23,7 +31,7 @@ class TabsManager {
      */
     setupInitialState() {
         // Pastikan tab wisata alam aktif secara default
-        this.activateTab('tab-alam', 'content-alam');
+        this.activateTab('btn-alam', 'alam-content');
     }
 
     /**
@@ -43,7 +51,7 @@ class TabsManager {
      * @param {HTMLElement} tab - Tab yang diklik
      */
     handleTabClick(tab) {
-        const targetId = tab.id === 'tab-alam' ? 'content-alam' : 'content-kuliner';
+        const targetId = tab.id === 'btn-alam' ? 'alam-content' : 'kuliner-content';
         this.activateTab(tab.id, targetId);
     }
 
@@ -52,42 +60,92 @@ class TabsManager {
      * @param {string} tabId - ID tab yang akan diaktifkan
      * @param {string} contentId - ID konten yang akan ditampilkan
      */
+    // activateTab(tabId, contentId) {
+    //     // Reset semua tabs
+    //     this.tabs.forEach(tab => {
+    //         tab.classList.remove('active', 'bg-amber-800', 'text-white');
+    //         tab.classList.add('text-amber-800');
+    //     });
+
+    //     // Aktifkan tab yang dipilih
+    //     const activeTab = document.getElementById(tabId);
+    //     if (activeTab) {
+    //         activeTab.classList.add('active', 'bg-amber-800', 'text-white');
+    //         activeTab.classList.remove('text-amber-800');
+    //     }
+
+    //     // Sembunyikan semua konten
+    //     this.contents.forEach(content => {
+    //         content.classList.add('hidden');
+    //     });
+
+    //     // Tampilkan konten yang sesuai
+    //     const activeContent = document.getElementById(contentId);
+    //     if (activeContent) {
+    //         activeContent.classList.remove('hidden');
+    //     }
+    // }
+    
     activateTab(tabId, contentId) {
         // Reset semua tabs
         this.tabs.forEach(tab => {
             tab.classList.remove('active', 'bg-amber-800', 'text-white');
             tab.classList.add('text-amber-800');
+            tab.setAttribute('aria-selected', 'false');
         });
-
         // Aktifkan tab yang dipilih
         const activeTab = document.getElementById(tabId);
         if (activeTab) {
             activeTab.classList.add('active', 'bg-amber-800', 'text-white');
             activeTab.classList.remove('text-amber-800');
+            activeTab.setAttribute('aria-selected', 'true');
         }
-
         // Sembunyikan semua konten
         this.contents.forEach(content => {
             content.classList.add('hidden');
+            content.setAttribute('aria-hidden', 'true');
         });
-
         // Tampilkan konten yang sesuai
         const activeContent = document.getElementById(contentId);
         if (activeContent) {
             activeContent.classList.remove('hidden');
+            activeContent.setAttribute('aria-hidden', 'false');
         }
     }
 
     /**
      * Bind event listeners untuk tombol video
      */
-    bindVideoButtonEvents() {
-        this.videoButtons.forEach(btn => {
+    bindNavButtonEvents() {
+        this.navButtons.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.handleVideoButtonClick(btn);
             });
         });
+
+        this.navButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const hash = button.getAttribute('href');
+                history.pushState(null, null, hash);
+                this.handleNavigation(hash);
+            });
+        });
+    }
+
+    handleNavigation(hash) {
+        if (!hash) {
+            this.activateTab('btn-alam', 'alam-content');
+            return;
+        }
+        const targetElement = document.querySelector(hash);
+        if (!targetElement) return;
+        const category = hash.includes('alam') ? 'alam' : 'kuliner';
+        this.activateTab(`btn-${category}`, `${category}-content`);
+        setTimeout(() => {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
     }
 
     /**
@@ -100,14 +158,14 @@ class TabsManager {
         
         if (targetElement) {
             // Tentukan parent section
-            const parentSection = targetElement.closest('.tab-content');
+            const parentSection = targetElement.closest('.content-section');
             
             if (parentSection) {
                 // Aktifkan tab yang sesuai
-                if (parentSection.id === 'content-kuliner') {
-                    this.activateTab('tab-kuliner', 'content-kuliner');
+                if (parentSection.id === 'kuliner-content') {
+                    this.activateTab('btn-kuliner', 'kuliner-content');
                 } else {
-                    this.activateTab('tab-alam', 'content-alam');
+                    this.activateTab('btn-alam', 'alam-content');
                 }
 
                 // Scroll ke element setelah tab aktif
@@ -138,9 +196,9 @@ class TabsManager {
         const buttonText = btn.textContent.trim();
         
         if (buttonText.includes('Alam')) {
-            this.activateTab('tab-alam', 'content-alam');
+            this.activateTab('btn-alam', 'alam-content');
         } else if (buttonText.includes('Kuliner')) {
-            this.activateTab('tab-kuliner', 'content-kuliner');
+            this.activateTab('btn-kuliner', 'kuliner-content');
         }
 
         // Scroll ke section wisata
@@ -174,7 +232,7 @@ class TabsManager {
      * @returns {HTMLElement|null} Content yang sedang aktif
      */
     getActiveContent() {
-        return document.querySelector('.tab-content:not(.hidden)');
+        return document.querySelector('.content-section:not(.hidden)');
     }
 
     /**
@@ -183,9 +241,9 @@ class TabsManager {
      */
     switchTab(tabType) {
         if (tabType === 'alam') {
-            this.activateTab('tab-alam', 'content-alam');
+            this.activateTab('btn-alam', 'alam-content');
         } else if (tabType === 'kuliner') {
-            this.activateTab('tab-kuliner', 'content-kuliner');
+            this.activateTab('btn-kuliner', 'kuliner-content');
         }
     }
 
@@ -199,9 +257,9 @@ class TabsManager {
         if (!activeTab) return false;
 
         if (tabType === 'alam') {
-            return activeTab.id === 'tab-alam';
+            return activeTab.id === 'btn-alam';
         } else if (tabType === 'kuliner') {
-            return activeTab.id === 'tab-kuliner';
+            return activeTab.id === 'btn-kuliner';
         }
         
         return false;
@@ -214,7 +272,7 @@ class TabsManager {
         // Event listeners akan otomatis dibersihkan saat page unload
         this.tabs = null;
         this.contents = null;
-        this.videoButtons = null;
+        this.navButtons = null;
         this.cardButtons = null;
     }
 }
@@ -228,14 +286,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hash) {
             const targetElement = document.querySelector(hash);
             if (targetElement) {
-                // Cari parent .tab-content
-                const parentTabContent = targetElement.closest('.tab-content');
+                // Cari parent .content-section
+                const parentTabContent = targetElement.closest('.content-section');
                 if (parentTabContent) {
                     // Aktifkan tab yang sesuai
-                    if (parentTabContent.id === 'content-alam') {
-                        tabsManager.activateTab('tab-alam', 'content-alam');
-                    } else if (parentTabContent.id === 'content-kuliner') {
-                        tabsManager.activateTab('tab-kuliner', 'content-kuliner');
+                    if (parentTabContent.id === 'alam-content') {
+                        tabsManager.activateTab('btn-alam', 'alam-content');
+                    } else if (parentTabContent.id === 'kuliner-content') {
+                        tabsManager.activateTab('btn-kuliner', 'kuliner-content');
                     }
                 }
                 // Scroll setelah tab aktif

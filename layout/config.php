@@ -62,17 +62,17 @@ $wisata_alam = [
     ],
     [
         'id' => 'alam-3',
-        'title' => 'Wisata Pantai Talang Siring',
-        'description' => 'Deskripsi wisata alam ketiga',
-        'video' => 'alam-pantai-talang-siring.mp4',
-        'images' => array_map(function($i) use ($alam3) { return "$alam3/$i.png"; }, range(1, 25))
-    ],
-    [
-        'id' => 'alam-4',
         'title' => 'Wisata Pemandian Belerang',
         'description' => 'Deskripsi wisata alam keempat',
         'video' => 'alam-pemandian-belerang.mp4',
         'images' => array_map(function($i) use ($alam4) { return "$alam4/$i.png"; }, range(1, 24))
+    ],
+    [
+        'id' => 'alam-4',
+        'title' => 'Wisata Pantai Talang Siring',
+        'description' => 'Deskripsi wisata alam ketiga',
+        'video' => 'alam-pantai-talang-siring.mp4',
+        'images' => array_map(function($i) use ($alam3) { return "$alam3/$i.png"; }, range(1, 25))
     ]
 ];
     
