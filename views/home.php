@@ -55,3 +55,27 @@
         <?php endforeach; ?>
     </div>
 </section>
+
+<!-- Video Navigation Buttons -->
+<section class="mb-16 grid grid-cols-2 gap-12" role="navigation" aria-label="Navigation Video">
+    <!-- Wisata Alam Buttons -->
+    <div class="grid grid-cols-2 gap-6">
+        <?php foreach ($btn_alam as $index => $wisata): ?>
+            <a href="#edukasi-alam-<?= $index + 1; ?>"
+                class="card-button flex items-center justify-center bg-transparent nav-button text-center px-6 py-2 rounded-lg font-medium transition-colors">
+                <!-- Edukasi Alam <?= $index + 1; ?> -->
+                <?= $wisata['title']; ?>
+            </a>
+        <?php endforeach; ?>
+    </div>
+
+    <!-- Wisata Kuliner Buttons -->
+    <div class="grid grid-cols-2 gap-6">
+        <?php foreach ($btn_kuliner as $index => $wisata): ?>
+            <a href="#edukasi-kuliner-<?= $index + 1; ?>"
+                class="card-button flex items-center justify-center bg-transparent nav-button text-center px-6 py-2 rounded-lg font-medium transition-colors">
+                <?= $wisata['title']; ?>
+            </a>
+        <?php endforeach; ?>
+    </div>
+</section>

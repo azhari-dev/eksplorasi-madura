@@ -108,6 +108,52 @@ $wisata_kuliner = [
     ]
 ];
 
+$btn_alam = [
+    [
+        'image' => 'api-tak-padam.webp',
+        'alt' => 'Wisata Api Tak Kunjung Padam',
+        'link' => '#edukasi-alam-1'
+    ],
+    [
+        'image' => 'mangrove.webp',
+        'alt' => 'Wisata Mangrove',
+        'link' => '#edukasi-alam-2'
+    ],
+    [
+        'image' => 'mandi-belerang.webp',
+        'alt' => 'Wisata Pemandian Belerang',
+        'link' => '#edukasi-alam-3'
+    ],
+    [
+        'image' => 'pantai.webp',
+        'alt' => 'Wisata Pantai Talang Siring',
+        'link' => '#edukasi-alam-4'
+    ]
+]
+        
+$btn_kuliner = [
+    [
+        'image' => 'campur-lorjuk.webp',
+        'alt' => 'Kuliner Campur Lorjuk',
+        'link' => '#edukasi-kuliner-1'
+    ],
+    [
+        'image' => 'sudi-mampir.webp',
+        'alt' => 'Kuliner Es Sudi Mampir',
+        'link' => '#edukasi-kuliner-2'
+    ],
+    [
+        'image' => 'kaldu-kokot.webp',
+        'alt' => 'Kuliner Kaldu Kokot',
+        'link' => '#edukasi-kuliner-3'
+    ],
+    [
+        'image' => 'sate-lalat.webp',
+        'alt' => 'Kuliner Sate Lalat',
+        'link' => '#edukasi-kuliner-4'
+    ]
+]
+
 
 // ========================================
 // FEATURE FLAGS
