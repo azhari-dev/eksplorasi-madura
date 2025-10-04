@@ -6,5 +6,5 @@
 *.flv
 *.wmv
 *.png
-*.webp
+# *.webp
 *.jpg
