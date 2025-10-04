@@ -61,21 +61,26 @@
     <!-- Wisata Alam Buttons -->
     <div class="grid grid-cols-2 gap-6">
         <?php foreach ($btn_alam as $index => $wisata): ?>
-            <a href="#edukasi-alam-<?= $index + 1; ?>"
+            <!-- <a href="#edukasi-alam-<?= $index + 1; ?>"
                 class="card-button flex items-center justify-center bg-transparent nav-button text-center px-6 py-2 rounded-lg font-medium transition-colors">
-                <!-- Edukasi Alam <?= $index + 1; ?> -->
+                Edukasi Alam <?= $index + 1; ?>
                 <?= $wisata['title']; ?>
-            </a>
+            </a> -->
+            <div class="flex justify-end items-start rounded-[16px] bg-[url('assets/images/btn-wisata/alam/<?= $wisata['image'] ?>')] bg-no-repeat bg-cover bg-lightgray-200 w-full h-40">
+                <div class="flex w-6 h-6 p-6 flex-col justify-center items-center aspect-square rounded-[16px] border-2 border-indigo-500 bg-primary-50"></div>
+            </div>
         <?php endforeach; ?>
     </div>
-
+        
     <!-- Wisata Kuliner Buttons -->
     <div class="grid grid-cols-2 gap-6">
         <?php foreach ($btn_kuliner as $index => $wisata): ?>
-            <a href="#edukasi-kuliner-<?= $index + 1; ?>"
+            <!-- <a href="#edukasi-kuliner-<?= $index + 1; ?>"
                 class="card-button flex items-center justify-center bg-transparent nav-button text-center px-6 py-2 rounded-lg font-medium transition-colors">
                 <?= $wisata['title']; ?>
-            </a>
+            </a> -->
+            <div class="flex justify-end align-start rounded-[16px] bg-[url('assets/images/btn-wisata/kuliner/<?= $wisata['image'] ?>')] bg-no-repeat bg-cover bg-lightgray-200 w-full h-40"></div>
+            <!-- <img src="assets/images/btn-wisata/kuliner/<?= $wisata['image'] ?>" alt="<?= $wisata['alt'] ?>"> -->
         <?php endforeach; ?>
     </div>
 </section>
