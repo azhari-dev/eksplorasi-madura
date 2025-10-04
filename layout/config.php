@@ -129,7 +129,7 @@ $btn_alam = [
         'alt' => 'Wisata Pantai Talang Siring',
         'link' => '#edukasi-alam-4'
     ]
-]
+];
         
 $btn_kuliner = [
     [
@@ -152,7 +152,7 @@ $btn_kuliner = [
         'alt' => 'Kuliner Sate Lalat',
         'link' => '#edukasi-kuliner-4'
     ]
-]
+];
 
 
 // ========================================
