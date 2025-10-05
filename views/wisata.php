@@ -2,14 +2,14 @@
 <section class="flex justify-center pt-8" id="wisata" role="tablist" aria-label="Pilihan Konten Wisata">
     <div class="tab-container flex rounded-full p-1 space-x-1">
         <button id="btn-alam"
-            class="tab-button active py-2 px-10 rounded-full font-semibold bg-amber-800 text-white"
+            class="tab-button active py-2 px-10 rounded-full font-semibold bg-green-800 text-green-50"
             role="tab"
             aria-selected="true"
             aria-controls="alam-content">
             Wisata Alam
         </button>
         <button id="btn-kuliner"
-            class="tab-button py-2 px-10 rounded-full font-semibold text-amber-800"
+            class="tab-button py-2 px-10 rounded-full font-semibold text-green-800"
             role="tab"
             aria-selected="false"
             aria-controls="kuliner-content">
@@ -28,14 +28,14 @@
         <?php foreach ($wisata_alam as $index => $wisata): ?>
             <div class="video-section" id="edukasi-alam-<?= $index + 1; ?>">
                 <!-- Section Title -->
-                <h3 class="text-4xl font-bold text-madura-orange text-center mb-6">
+                <h3 class="text-4xl font-bold text-green-800 text-center mb-6">
                     <?= $wisata['title']; ?>
                 </h3>
 
                 <!-- Media Gallery -->
                 <div class="image-gallery">
                     <!-- Video Container -->
-                    <div class="video-container">
+                    <div class="video-container border-2 border-green-700">
                         <video controls class="w-full h-full object-cover" preload="metadata">
                             <source src="<?= get_asset_url($wisata['video'], 'videos'); ?>" type="video/mp4">
                             Browser Anda tidak mendukung video.
@@ -43,7 +43,7 @@
                     </div>
 
                     <!-- Image Carousel -->
-                    <div class="gallery-item" id="carousel-alam-<?= $index + 1; ?>">
+                    <div class="gallery-item border-2 border-green-700" id="carousel-alam-<?= $index + 1; ?>">
                         <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow z-10 carousel-prev" aria-label="Sebelumnya">
                             <!-- SVG kiri -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-madura-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -75,7 +75,7 @@
         <?php foreach ($wisata_kuliner as $index => $wisata): ?>
             <div class="video-section" id="edukasi-kuliner-<?= $index + 1; ?>">
                 <!-- Section Title -->
-                <h3 class="text-4xl font-bold text-madura-orange text-center mb-6">
+                <h3 class="text-4xl font-bold text-green-800 text-center mb-6">
                     <?= $wisata['title']; ?>
                 </h3>
 

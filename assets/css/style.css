@@ -1,8 +1,21 @@
 /* Custom Colors untuk tema Madura */
 :root {
-    --madura-orange: #D97706;
+    /* --primary-700: #D97706;
     --madura-purple: #8B5CF6;
-    --madura-brown: #92400E;
+    --primary-800: #92400E; */
+
+    --primary-50: #F0FDF1;
+    --primary-100: #DCFCE7;
+    --primary-200: #BBF7D0; 
+    --primary-300: #86EFAC;
+    --primary-400: #4ADE80;
+    --primary-500: #22C55E;
+    --primary-600: #16A34A;
+    --primary-700: #15803D;
+    --primary-800: #166534;
+    --primary-900: #14532D;
+    --primary-950: #062D0D;
+    
 }
 
 /* Carousel */
@@ -70,12 +83,12 @@
 }
 
 .nav-link:hover {
-    color: var(--madura-orange);
+    color: var(--primary-700);
 }
 
 /* Cards */
 .card {
-    border: 2px solid var(--madura-brown);
+    border: 2px solid var(--primary-700);
     transition: box-shadow 0.3s ease;
 }
 
@@ -84,13 +97,13 @@
 }
 
 .card-button {
-    border: 2px solid var(--madura-brown);
-    color: var(--madura-brown);
+    border: 2px solid var(--primary-800);
+    color: var(--primary-800);
     transition: all 0.3s ease;
 }
 
 .card-button:hover {
-    background-color: var(--madura-brown);
+    background-color: var(--primary-800);
     color: white;
 }
 
@@ -179,20 +192,20 @@
 }
 
 /* Utility Classes */
-.text-madura-orange {
-    color: var(--madura-orange);
+.text-primary-700 {
+    color: var(--primary-700);
 }
 
-.text-madura-brown {
-    color: var(--madura-brown);
+.text-primary-800 {
+    color: var(--primary-800);
 }
 
-.border-madura-brown {
-    border-color: var(--madura-brown);
+.border-primary-800 {
+    border-color: var(--primary-800);
 }
 
-.bg-madura-brown {
-    background-color: var(--madura-brown);
+.bg-primary-800 {
+    background-color: var(--primary-800);
 }
 
 .hidden {
@@ -231,28 +244,6 @@ html {
 .tab-button:focus,
 .card-button:focus,
 .nav-link:focus {
-    outline: 2px solid var(--madura-orange);
+    outline: 2px solid var(--primary-700);
     outline-offset: 2px;
-}
-
-/* QR Code styling */
-.qr-code-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem;
-    background-color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
-}
-
-.qr-code-container:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.qr-code-container img {
-    width: 8rem; /* 32 * 0.25rem = 8rem */
-    height: 8rem;
 }

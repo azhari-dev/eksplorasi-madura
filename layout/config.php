@@ -1,6 +1,6 @@
 <?php
 // Informasi dasar website
-$site_name = 'Eksplorasi Madura';
+$site_name = 'Etnokimia Madura';
 $site_description = 'Platform yang didedikasikan untuk memperkenalkan keindahan wisata alam dan kuliner khas Madura';
 $site_keywords = 'Madura, wisata, kuliner, alam, Jawa Timur, Indonesia';
 $university_name = 'Universitas Trunojoyo Madura';
@@ -25,11 +25,11 @@ $videos_path = 'assets/videos/';
 // ========================================
 
 // Warna tema Madura
-$theme_colors = [
-    'madura-orange' => '#D97706',
-    'madura-purple' => '#8B5CF6',
-    'madura-brown' => '#92400E'
-];
+// $theme_colors = [
+//     'madura-orange' => '#D97706',
+//     'madura-purple' => '#8B5CF6',
+//     'madura-brown' => '#92400E'
+// ];
 
 // ========================================
 // CONTENT SETTINGS

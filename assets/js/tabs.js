@@ -63,15 +63,15 @@ class TabsManager {
     // activateTab(tabId, contentId) {
     //     // Reset semua tabs
     //     this.tabs.forEach(tab => {
-    //         tab.classList.remove('active', 'bg-amber-800', 'text-white');
-    //         tab.classList.add('text-amber-800');
+    //         tab.classList.remove('active', 'bg-green-800', 'text-white');
+    //         tab.classList.add('text-green-800');
     //     });
 
     //     // Aktifkan tab yang dipilih
     //     const activeTab = document.getElementById(tabId);
     //     if (activeTab) {
-    //         activeTab.classList.add('active', 'bg-amber-800', 'text-white');
-    //         activeTab.classList.remove('text-amber-800');
+    //         activeTab.classList.add('active', 'bg-green-800', 'text-white');
+    //         activeTab.classList.remove('text-green-800');
     //     }
 
     //     // Sembunyikan semua konten
@@ -89,15 +89,15 @@ class TabsManager {
     activateTab(tabId, contentId) {
         // Reset semua tabs
         this.tabs.forEach(tab => {
-            tab.classList.remove('active', 'bg-amber-800', 'text-white');
-            tab.classList.add('text-amber-800');
+            tab.classList.remove('active', 'bg-green-800', 'text-white');
+            tab.classList.add('text-green-800');
             tab.setAttribute('aria-selected', 'false');
         });
         // Aktifkan tab yang dipilih
         const activeTab = document.getElementById(tabId);
         if (activeTab) {
-            activeTab.classList.add('active', 'bg-amber-800', 'text-white');
-            activeTab.classList.remove('text-amber-800');
+            activeTab.classList.add('active', 'bg-green-800', 'text-white');
+            activeTab.classList.remove('text-green-800');
             activeTab.setAttribute('aria-selected', 'true');
         }
         // Sembunyikan semua konten

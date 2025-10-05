@@ -9,28 +9,30 @@ if (file_exists(__DIR__ . '/config.php')) {
 <nav class="navbar bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-md py-6">
     <div class="max-w-6xl mx-auto flex justify-between items-center px-6">
         <!-- Logo/Brand -->
-        <h1 class="text-xl font-semibold text-gray-800">
+        <h1 class="text-xl font-semibold text-green-800">
+            <img src="assets/images/aset/pendidikan.webp" alt="pendidikan" class="inline w-8 mr-2 -mt-1">
+            <img src="assets/images/aset/bima.webp" alt="pendidikan" class="inline w-8 mr-2 -mt-1">
             <?= isset($site_name) ? $site_name : 'Eksplorasi Madura'; ?>
         </h1>
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-8">
-            <a href="#" class="nav-link text-gray-600 hover:text-madura-orange transition-colors">
+            <a href="#" class="nav-link text-green-700 hover:text-green-900 transition-colors">
                 Beranda
             </a>
-            <a href="#wisata" class="nav-link text-gray-600 hover:text-madura-orange transition-colors">
+            <a href="#wisata" class="nav-link text-green-700 hover:text-green-900 transition-colors">
                 Wisata
             </a>
-            <a href="#tentang" class="nav-link text-gray-600 hover:text-madura-orange transition-colors">
+            <a href="#tentang" class="nav-link text-green-700 hover:text-green-900 transition-colors">
                 Tentang
             </a>
         </div>
 
         <!-- Mobile Menu Button -->
-        <button class="md:hidden mobile-menu-btn p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        <button class="md:hidden mobile-menu-btn p-2 rounded-lg hover:bg-green-100 transition-colors"
             aria-label="Toggle mobile menu"
             aria-expanded="false">
-            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -40,13 +42,13 @@ if (file_exists(__DIR__ . '/config.php')) {
     <!-- Mobile Navigation Menu -->
     <div class="mobile-menu hidden md:hidden bg-white border-t shadow-lg">
         <div class="max-w-6xl mx-auto px-6 py-4 space-y-4">
-            <a href="#" class="block nav-link text-gray-600 hover:text-madura-orange transition-colors py-2">
+            <a href="#" class="block nav-link text-green-600 hover:text-green-800 transition-colors py-2">
                 Beranda
             </a>
-            <a href="#wisata" class="block nav-link text-gray-600 hover:text-madura-orange transition-colors py-2">
+            <a href="#wisata" class="block nav-link text-green-600 hover:text-green-800 transition-colors py-2">
                 Wisata
             </a>
-            <a href="#tentang" class="block nav-link text-gray-600 hover:text-madura-orange transition-colors py-2">
+            <a href="#tentang" class="block nav-link text-green-600 hover:text-green-800 transition-colors py-2">
                 Tentang
             </a>
         </div>
